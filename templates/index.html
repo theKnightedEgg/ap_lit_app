@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homegoing — Generational Map</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --gh: #5c52c8;
+        --gh-light: #f0effe;
+        --gh-dark: #2e2a6e;
+        --us: #2a8a64;
+        --us-light: #eaf7f1;
+        --us-dark: #164d38;
+        --re: #7a7670;
+        --re-light: #f5f4f0;
+        --re-dark: #3d3b38;
+        --bg: #fdfcf8;
+        --surface: #ffffff;
+        --border: #e2e0d8;
+        --border-strong: #c8c5bb;
+        --text: #1c1b18;
+        --text-secondary: #6b6860;
+        --text-tertiary: #a8a59c;
+        --sans: Georgia, "Times New Roman", serif;
+        --ui: system-ui, sans-serif;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #181715;
+          --surface: #222220;
+          --border: #333330;
+          --border-strong: #4a4845;
+          --text: #eceae2;
+          --text-secondary: #9c9a92;
+          --text-tertiary: #5f5d58;
+          --gh-light: #1e1c3a;
+          --gh-dark: #b8b4f0;
+          --us-light: #0f2a20;
+          --us-dark: #7ed4b0;
+          --re-light: #252420;
+          --re-dark: #c8c5bc;
+        }
+      }
+
+      body {
+        font-family: var(--sans);
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        line-height: 1.6;
+      }
+
+      .page {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem 4rem;
+      }
+
+      header {
+        margin-bottom: 2.5rem;
+      }
+      header h1 {
+        font-size: 22px;
+        font-weight: normal;
+        letter-spacing: -0.01em;
+        margin-bottom: 6px;
+      }
+      header p {
+        font-family: var(--ui);
+        font-size: 12px;
+        color: var(--text-tertiary);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .legend {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-family: var(--ui);
+        font-size: 11px;
+        color: var(--text-secondary);
+        letter-spacing: 0.03em;
+      }
+      .legend-dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+      }
+
+      .controls {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .controls-label {
+        font-family: var(--ui);
+        font-size: 11px;
+        color: var(--text-tertiary);
+        margin-right: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .filter-btn {
+        font-family: var(--ui);
+        font-size: 11px;
+        padding: 4px 12px;
+        border-radius: 2px;
+        border: 1px solid var(--border-strong);
+        background: transparent;
+        cursor: pointer;
+        color: var(--text-secondary);
+        letter-spacing: 0.03em;
+        transition: all 0.1s;
+      }
+      .filter-btn:hover {
+        background: var(--surface);
+        color: var(--text);
+      }
+      .filter-btn.active {
+        background: var(--text);
+        color: var(--bg);
+        border-color: var(--text);
+      }
+
+      .timeline-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 52px minmax(0, 1fr);
+      }
+
+      .col-gh {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-right: 12px;
+      }
+      .col-us {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-left: 12px;
+      }
+      .col-spine {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .spine-seg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        min-height: 80px;
+      }
+      .spine-line {
+        width: 1px;
+        background: var(--border-strong);
+        flex: 1;
+      }
+      .spine-era {
+        font-family: var(--ui);
+        font-size: 9px;
+        color: var(--text-tertiary);
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        white-space: nowrap;
+        padding: 4px 0;
+        letter-spacing: 0.05em;
+      }
+
+      .gen-card {
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        padding: 12px 14px;
+        cursor: pointer;
+        background: var(--surface);
+        transition: border-color 0.1s;
+        min-height: 76px;
+      }
+      .gen-card:hover {
+        border-color: var(--border-strong);
+      }
+      .gen-card.selected.gh {
+        border-color: var(--gh);
+        background: var(--gh-light);
+      }
+      .gen-card.selected.us {
+        border-color: var(--us);
+        background: var(--us-light);
+      }
+      .gen-card.selected.reunion {
+        border-color: var(--re);
+        background: var(--re-light);
+      }
+      .gen-card.faded {
+        opacity: 0.3;
+        pointer-events: none;
+      }
+
+      .card-top {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 4px;
+      }
+      .card-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      .dot-gh {
+        background: var(--gh);
+      }
+      .dot-us {
+        background: var(--us);
+      }
+      .dot-re {
+        background: var(--re);
+      }
+      .card-name {
+        font-size: 15px;
+        color: var(--text);
+        font-weight: normal;
+      }
+      .card-sub {
+        font-family: var(--ui);
+        font-size: 11px;
+        color: var(--text-secondary);
+        line-height: 1.4;
+      }
+
+      .detail-panel {
+        margin-top: 2rem;
+        border-top: 2px solid var(--text);
+        padding-top: 1.5rem;
+        animation: fadeUp 0.15s ease;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .detail-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+      }
+      .detail-name {
+        font-size: 20px;
+        font-style: italic;
+        font-weight: normal;
+        margin-bottom: 3px;
+      }
+      .detail-line {
+        font-family: var(--ui);
+        font-size: 11px;
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .close-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--text-tertiary);
+        font-size: 20px;
+        line-height: 1;
+        padding: 0;
+        font-family: var(--ui);
+      }
+      .close-btn:hover {
+        color: var(--text);
+      }
+
+      .detail-body {
+        font-size: 15px;
+        line-height: 1.8;
+        color: var(--text);
+        margin-bottom: 1.25rem;
+        max-width: 62ch;
+      }
+
+      .detail-quote {
+        font-size: 14px;
+        line-height: 1.7;
+        color: var(--text-secondary);
+        font-style: italic;
+        border-left: 2px solid var(--border-strong);
+        padding: 4px 14px;
+        margin-bottom: 1.25rem;
+        border-radius: 0;
+      }
+
+      .detail-actions {
+        display: flex;
+        gap: 8px;
+      }
+      .action-btn {
+        font-family: var(--ui);
+        font-size: 11px;
+        padding: 6px 14px;
+        border: 1px solid var(--border-strong);
+        border-radius: 2px;
+        background: transparent;
+        cursor: pointer;
+        color: var(--text-secondary);
+        letter-spacing: 0.02em;
+        transition: all 0.1s;
+      }
+      .action-btn:hover {
+        color: var(--text);
+        border-color: var(--text);
+      }
+
+      @media (max-width: 580px) {
+        .page {
+          padding: 2rem 1rem 3rem;
+        }
+        .gen-card {
+          padding: 10px 12px;
+          min-height: 68px;
+        }
+        .card-name {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <h1>Homegoing generational map</h1>
+        <p>
+          This app explains the generational links between the characters and
+          how the author uses the family tree structure to send a message. Click
+          on any character to explore.
+        </p>
+      </header>
+
+      <div class="timeline-grid" id="timeline"></div>
+
+      <div id="detail-panel" style="display: none"></div>
+    </div>
+
+    <script>
+      let characters = [];
+      let selected = null;
+      let filter = "all";
+
+      const ERAS = [
+        "1750s",
+        "1800s",
+        "1850s",
+        "1900s",
+        "1930s",
+        "1960s",
+        "1990s",
+      ];
+
+      async function init() {
+        const res = await fetch("/api/characters");
+        characters = await res.json();
+        render();
+      }
+
+      function setFilter(f) {
+        filter = f;
+        document
+          .querySelectorAll(".filter-btn")
+          .forEach((b) => b.classList.remove("active"));
+        document.querySelector(".f-" + f).classList.add("active");
+        render();
+      }
+
+      function isFaded(char) {
+        if (filter === "all") return false;
+        if (filter === "gh") return char.line === "us";
+        if (filter === "us") return char.line === "gh";
+        return false;
+      }
+
+      function render() {
+        const gen1to6_gh = characters.filter(
+          (c) => c.line === "gh" || c.id === "marjorie",
+        );
+        const gen1to6_us = characters.filter(
+          (c) => c.line === "us" || c.id === "marcus",
+        );
+        const reunion = [];
+
+        const timeline = document.getElementById("timeline");
+
+        let ghCol = '<div class="col-gh">';
+        let spineCol = '<div class="col-spine">';
+        let usCol = '<div class="col-us">';
+
+        for (let i = 0; i < 7; i++) {
+          const gh = gen1to6_gh[i];
+          const us = gen1to6_us[i];
+          const era = ERAS[i];
+
+          ghCol += cardHTML(gh);
+          usCol += cardHTML(us);
+
+          spineCol += `<div class="spine-seg">
+      <div class="spine-line"></div>
+      <div class="spine-era">${era}</div>
+    </div>`;
+        }
+
+        ghCol += "</div>";
+        spineCol += "</div>";
+        usCol += "</div>";
+
+        const reunionMarjorie = reunion.find((c) => c.id === "marjorie");
+        const reunionMarcus = reunion.find((c) => c.id === "marcus");
+
+        timeline.innerHTML = ghCol + spineCol + usCol;
+
+        timeline.querySelectorAll(".gen-card").forEach((el) => {
+          el.addEventListener("click", () => selectChar(el.dataset.id));
+        });
+      }
+
+      function cardHTML(char) {
+        if (!char) return "<div></div>";
+        const dotClass =
+          char.line === "reunion" ? "dot-re" : "dot-" + char.line;
+        const sel =
+          selected === char.id
+            ? " selected " + (char.line === "reunion" ? "reunion" : char.line)
+            : "";
+        return `<div class="gen-card${sel}" data-id="${char.id}">
+    <div class="card-top">
+      <div class="card-dot ${dotClass}"></div>
+      <span class="card-name">${char.name}</span>
+    </div>
+    <div class="card-sub">${char.subtitle}</div>
+  </div>`;
+      }
+
+      function selectChar(id) {
+        if (selected === id) {
+          selected = null;
+          document.getElementById("detail-panel").style.display = "none";
+          render();
+          return;
+        }
+        selected = id;
+        const char = characters.find((c) => c.id === id);
+        if (!char) return;
+        render();
+        showDetail(char);
+      }
+
+      function showDetail(char) {
+        const panel = document.getElementById("detail-panel");
+
+        panel.innerHTML = `
+    <div class="detail-panel">
+      <div class="detail-header">
+        <div class="detail-title-row">
+          <div>
+            <div class="detail-name">${char.name}</div>
+          </div>
+        </div>
+        <button class="close-btn" onclick="closeDetail()">×</button>
+      </div>
+      <p class="detail-body">${char.analysis}</p>
+      <div class="detail-quote">"${char.quote}"</div>
+    </div>`;
+
+        panel.style.display = "block";
+        panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      function closeDetail() {
+        selected = null;
+        document.getElementById("detail-panel").style.display = "none";
+        render();
+      }
+
+      init();
+    </script>
+  </body>
+</html>
