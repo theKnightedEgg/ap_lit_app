@@ -109,7 +109,7 @@ CHARACTERS = [
         "line": "us",
         "subtitle": "Heroin, jazz, 1960s activism",
         "generation": 6,
-        "analysis": "Sonny's chapter places him inside the Civil Rights Movement and shows him reaching toward it with genuine desire. Gyasi structures this chapter to show that political liberation and personal healing operate on separate timelines. The movement reshapes the law; it does not reach the interior damage that four generations of inherited silence have built up inside one family. Sonny wants to be present for the history happening around him, and Gyasi shows how much it costs him that he cannot always get there.",
+        "analysis": "Sonny's story starts with him as a civil rights activist. However, he gets increasingly and increasingly frustrated when he realizes that he is powerless. Eventually, he turns to heroin to try to forget that sense of powerlessness, but is eventually rescued from the addiction by his mother Willie. His chapter shows both the importance of heritage and the dangers of being African-American. The book states that if not for his mother, he would have just been another crackhead, but his African-American heritage is what made the government target him with heroin in the first place.",
         "quote": "The movement was everywhere, but Sonny could not always find himself inside it."
     },
     {
@@ -118,7 +118,7 @@ CHARACTERS = [
         "line": "gh",
         "subtitle": "Between two worlds",
         "generation": 7,
-        "analysis": "Marjorie's chapter is noticeably shorter than those before it, a structural signal that Gyasi is compressing time as the two lines draw together. She grows up moving between Ghana and America, inheriting the Ghana line's layered identity and carrying it into new territory. Her chapter exists to bring her into the same space as Marcus, and Gyasi is intentional about this: the final generation's work is contact and recognition rather than resolution.",
+        "analysis": "Marjorie's chapter starts with her growing up moving between Ghana and America, inheriting the Ghana line's layered identity and carrying it into new territory. However, she is conflicted between these two identities. Her chapter also exists to bring her into the same space as Marcus, and builds towards contact and recognition rather than resolution.",
         "quote": "She was always between two worlds, and she had stopped trying to choose."
     },
     {
@@ -127,7 +127,7 @@ CHARACTERS = [
         "line": "us",
         "subtitle": "Returns to Ghana, finds the origin",
         "generation": 7,
-        "analysis": "Marcus's chapter closes the novel by having him physically return to the place Esi was taken from. Gyasi gives him the work of tracing the prison-to-poverty pipeline as his academic research, meaning he is studying the same system that consumed H, now from the outside as a scholar. When he swims in the ocean at Cape Coast, Gyasi completes the structural circle. The American line returns to the moment of original rupture. The circle closes, and Gyasi lets it rest there, with Marcus holding a stone and not yet knowing about the necklace.",
+        "analysis": "Marcus's chapter closes the novel by having him physically return to the place Esi was taken from. Gyasi gives him the work of tracing the prison-to-poverty pipeline as his academic research, meaning he is studying the same system that consumed H, now from the outside as a scholar. When he swims in the ocean at Cape Coast, Gyasi completes the structural circle.",
         "quote": "He dove into the water and felt everything."
     }
 ]
