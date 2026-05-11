@@ -82,7 +82,7 @@ CHARACTERS = [
         "line": "gh",
         "subtitle": "Haunted by fire, trauma passed on",
         "generation": 5,
-        "analysis": "Akua's chapter is where Gyasi makes the generational transmission of trauma most visible. Akua has no direct memory of the slave trade yet carries a recurring dream of a woman made of fire, an image that descends from violence she never witnessed. Gyasi uses this to show that trauma travels through bodies and dreams and silences rather than through conscious memory. What one generation experienced becomes the next generation's haunting.",
+        "analysis": "Akua has no direct memory of the slave trade yet carries a recurring dream of a woman made of fire, an image that descends from violence she never witnessed. Gyasi uses this to show that trauma travels through bodies and dreams and silences rather than through conscious memory.",
         "quote": "She had the fire dream again. The woman made of fire, walking."
     },
     {
@@ -91,7 +91,7 @@ CHARACTERS = [
         "line": "us",
         "subtitle": "Great Migration north to Harlem",
         "generation": 5,
-        "analysis": "Willie's chapter is structured around the promise of geographic change. She moves north during the Great Migration seeking a different life, and Gyasi shows her finding Harlem full of possibility and also full of people carrying the same wounds she hoped to leave behind. The American chapters follow a pattern: each generation reaches toward a new form of freedom, and Gyasi honors that reach while also tracing how deeply the inherited damage runs beneath it.",
+        "analysis": "Willie's chapter is structured around the promise of geographic change. She moves north during the Great Migration seeking a different life, and she finds Harlem full of possibility and also full of people carrying the same wounds she hoped to leave behind. The American chapters follow a pattern: each generation reaches toward a new form of freedom while also tracing how deeply the inherited damage runs beneath it.",
         "quote": "She had moved north to leave everything behind. But she had brought herself with her."
     },
     {
@@ -100,7 +100,7 @@ CHARACTERS = [
         "line": "gh",
         "subtitle": "Scarred by mother's fire",
         "generation": 6,
-        "analysis": "Yaw's chapter is Gyasi's most direct statement about the novel's own project. As a history teacher, he pushes his students to ask not just what happened but why, and who shaped the telling. His facial scars are Akua's trauma made visible on his body, the clearest image in the novel of how one generation's crisis becomes the next generation's defining mark. Gyasi places this chapter near the end to frame everything the reader has witnessed as precisely the kind of history Yaw is asking us to examine.",
+        "analysis": "As a history teacher, Yaw pushes his students to ask not just what happened but why, and who shaped the telling. His facial scars are Akua's trauma from their family's involvement in slavery made visible on his body, the clearest image in the novel of how one generation's crisis defines the next. Gyasi places this chapter near the end to frame everything the reader has witnessed as precisely the kind of history Yaw is asking us to examine.",
         "quote": "We cannot know what we do not ask. History is not the things that happened. It is the story we tell about them."
     },
     {
