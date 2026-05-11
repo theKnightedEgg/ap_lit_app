@@ -10,7 +10,7 @@ CHARACTERS = [
         "line": "gh",
         "subtitle": "Marries British officer",
         "generation": 1,
-        "analysis": "Gyasi opens Effia's chapter by placing her literally above the dungeon where Esi is held, same building, different floors, different fates. This physical arrangement is the novel's central architectural metaphor. Privilege and suffering exist in the same space, separated by a floor they cannot see through. By keeping Effia unaware of what lies beneath her, Gyasi shows how complicity travels forward through ignorance rather than intention, and how that ignorance becomes the first thing Effia's descendants carry with them.",
+        "analysis": "Effia's chapter is about her marrying a British soldier. As she lives in luxury above the Cape Coast Castle, she does not know that below her, her sister is being kept and sold into slavery. She keeps the black stone, and her family's association with the slave trade shapes the rest of the Ghanian side of the story.",
         "quote": "She did not know about the dungeon. How could she?"
     },
     {
@@ -19,7 +19,7 @@ CHARACTERS = [
         "line": "us",
         "subtitle": "Enslaved, taken to America",
         "generation": 1,
-"analysis": "Gyasi gives Esi far less page time than Effia, a structural choice that mirrors how the historical record treats enslaved people. Where Effia's chapter moves slowly and domestically, Esi's is compressed and immediate. The stone necklace Maame gives only to Effia becomes the novel's symbol of what the American line will spend generations searching for, a traceable inheritance. Every subsequent American chapter is shaped by this original separation.",
+"analysis": "On the other hand, Esi is kept in the dungeon, where she is kept in horrific conditions. In contrast to Effia, she loses the black stone, symbolizing her severance with Africa and shaping the American line of the story.",
         "quote": "The first night Esi slept in the dungeon, she dreamed of the fish."
     },
     {
@@ -28,7 +28,7 @@ CHARACTERS = [
         "line": "gh",
         "subtitle": "Mixed-race, complicit in trade",
         "generation": 2,
-        "analysis": "Gyasi structures Quey's chapter as an inheritance problem. He receives Effia's position of proximity to British power and must decide what to do with it. Where Effia's complicity was passive, Quey's is deliberate. This escalation across generations is one of Gyasi's key structural moves: each Ghana chapter raises the moral stakes rather than resetting them, showing how the choices of one generation become the starting conditions for the next.",
+        "analysis": "Quey is directly affected by Effia's marriage into British society. He is surrounded by the British slave trade, and decides to actively take part in it as a slaver. This active decision to propagate slavery passes down a curse through the rest of the Ghana line.",
         "quote": "He had to choose between two worlds — and chose the one that would destroy him."
     },
     {
@@ -37,7 +37,7 @@ CHARACTERS = [
         "line": "us",
         "subtitle": "Enslaved on Alabama plantation",
         "generation": 2,
-        "analysis": "Ness's chapter is structured around what she is prevented from passing on. Gyasi shows her love for her son Sam turned into leverage against her, and then removes Sam from the narrative entirely, as he is removed from her life. This is how Gyasi builds inherited trauma in the American line: as an absence rather than a presence. Each generation begins already missing something they have no words for.",
+        "analysis": "Ness is enslaved on an Alabama plantation, and her story is focused on how slavery has stripped away African heritage by showing her forcibly disconnected from her son. She is shown basically losing everything when she tries to escape from \"Hell\". She has to give up Kojo so he can escape, and Sam is taken from her.",
         "quote": "Her love for Sam was the one thing they had not taken. So they took Sam."
     },
     {
@@ -46,7 +46,7 @@ CHARACTERS = [
         "line": "gh",
         "subtitle": "Caught in colonial change",
         "generation": 3,
-        "analysis": "James inherits Quey's wealth but arrives in a changed world. Gyasi uses his chapter to show how colonialism reshapes the terms of inheritance itself, with the slave trade now illegal and British Christianity rewriting what it means to be Ghanaian. Each Ghana chapter hands the next generation a transformed landscape and asks them to reconstruct identity from whatever the colonial system has left available to them.",
+        "analysis": "James' chapter shows how he inherits the identity of a slaver, showing how the legacy of slavery exists long after it has been legally banned by the British. He is shunned by people for being associated with slavers, but also inherits lots of wealth. In the end, he decides to escape an arranged marriage to marry for love, but his privilege prevents saves his life, showing that he can never truly escape his family's legacy of slavery.",
         "quote": "James stood between two worlds, belonging fully to neither."
     },
     {
@@ -55,7 +55,7 @@ CHARACTERS = [
         "line": "us",
         "subtitle": "Free Black man, always hunted",
         "generation": 3,
-        "analysis": "Kojo's chapter arrives after legal emancipation and demonstrates how the underlying structure of control persists. Gyasi builds the American chapters so that each generation inherits the previous one's wound in a new legal form. Esi was enslaved by law, Ness by ownership, and Kojo lives under the Fugitive Slave Act, which keeps his freedom conditional. The wound is continuous; the legal vocabulary around it simply updates with each generation.",
+        "analysis": "H's chapter shows how even after slavery is abolished, the same structure is still in place to make sure that African-Americans never truly get freedom. Very shortly after he is freed from slavery, he is accused of a crime he did not commit and sent to work in the coal mines. However, this chapter also marks the beginning of a new African-American identity. He manages to settle down and finally break the cycle of the American line being constantly disconnected from their",
         "quote": "He was free, but free in the way that a fish in a net is free."
     },
     {
@@ -73,7 +73,7 @@ CHARACTERS = [
         "line": "us",
         "subtitle": "Convict leased into coal mines",
         "generation": 4,
-        "analysis": "Gyasi places H's chapter deliberately after the Civil War to make a structural argument about legal change and lived reality. H inherits Kojo's conditional freedom and watches it collapse through the convict leasing system, where criminal justice becomes the new mechanism for forced labor. His name, reduced to a single letter, echoes how Esi was reduced to property. The American line carries the same wound forward, rebranded by each era into its acceptable legal form.",
+        "analysis": "H's chapter shows how even after slavery is abolished, the same structure is still in place to make sure that African-Americans never truly get freedom. Very shortly after he is freed from slavery, he is accused of a crime he did not commit and sent to work in the coal mines. However, this chapter also marks the beginning of a new African-American identity. He manages to settle down and finally break the cycle of the American line being constantly disconnected from their parents.",
         "quote": "His name was H. He had been given it the day he arrived at the mine."
     },
     {
